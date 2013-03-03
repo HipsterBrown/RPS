@@ -1,0 +1,28 @@
+.RPS-Hand_1, .RPS-Paper, .RPS-Rock, .RPS-Scissors{
+	background: url(sprites.png) no-repeat;
+}
+
+.RPS-Hand_1{
+	background-position: 0 0;
+	width: 400px;
+	height: 272px;
+}
+
+.RPS-Paper{
+	background-position: 0 -303px ;
+	width: 246px;
+	height: 290px;
+}
+
+.RPS-Rock{
+	background-position: -400px 0;
+	width: 289px;
+	height: 290px;
+}
+
+.RPS-Scissors{
+	background-position: -402px -303px ;
+	width: 245px;
+	height: 290px;
+}
+
