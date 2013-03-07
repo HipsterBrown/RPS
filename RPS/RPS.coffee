@@ -1,20 +1,13 @@
 $ ->
-  $('button').click ->
-    $('span#rock').css(
-      "-webkit-animation": "start_1 1s ease-in",
-      "-moz-animation": "start_1 1s ease-in",
-      "animation": "start_1 1s ease-in"
-    )
-    $('span#paper').css(
-      "-webkit-animation": "start_2 1s 1s ease-in",
-      "-moz-animation": "start_2 1s 1s ease-in",
-      "animation": "start_2 1s 1s ease-in"
-    )
-    $('span#scissors').css(
-      "-webkit-animation": "start_1 1s 2s ease-in",
-      "-moz-animation": "start_1 1s 2s ease-in",
-      "animation": "start_1 1s 2s ease-in"
-    )
+  $('button#refresh').click ->
+  	$('#compete h1').text('VS')
+  	$('section:first-of-type').removeClass().css("background-position", "0 0")
+  	$('section:nth-of-type(2)').removeClass().css("background-position" : "0 0", "-webkit-transform" : "matrix(-1, 0, 0, 1, 0, 0)","-moz-transform" : "matrix(-1, 0, 0, 1, 0, 0)", "transform" : "matrix(-1, 0, 0, 1, 0, 0)")
+  	$('span').removeClass()	
+  $('button#rock, button#paper, button#scissors').click ->
+    $('span#rock').addClass('start_1')
+    $('span#paper').addClass('start_2')
+    $('span#scissors').addClass('start_3')
     $("section:first-of-type").addClass('play_1')
     $("section:nth-of-type(2)").addClass('play_2')
     $('#compete h1').css('z-index': 5, '-webkit-animation' : "start_2 1s 3s ease-in",'-moz-animation' : "start_2 1s 3s ease-in","animation" : "start_2 1s 3s ease-in").text('SHOOT!')
@@ -44,11 +37,6 @@ $ ->
 	        "-moz-animation": "results 2s ease-in-out",
 	        "animation": "results 2s ease-in-out"
 	      )
-	      $('footer h1').css(
-	      	"-webkit-animation" : "refresh 2s 3s ease-in-out",
-	      	"-moz-animation" : "refresh 2s 3s ease-in-out",
-	      	"animation" : "refresh 2s 3s ease-in-out"
-	      	)
 	      
 	    winner1 = -> 
 	      $('#compete section:first-child').addClass('winnerLeft')
@@ -59,11 +47,6 @@ $ ->
 	        "-moz-animation": "results 2s ease-in-out",
 	        "animation": "results 2s ease-in-out"
 	      )
-	      $('footer h1').css(
-	      	"-webkit-animation" : "refresh 2s 3s ease-in-out",
-	      	"-moz-animation" : "refresh 2s 3s ease-in-out",
-	      	"animation" : "refresh 2s 3s ease-in-out"
-	      	)
 	      
 	    winner2 =  ->
 	      $('#compete section:nth-child(3)').css('-webkit-animation' : 'winner_right 1.5s 2s forwards', '-moz-animation' : 'winner_right 1.5s 2s forwards', 'animation' : 'winner_right 1.5s 2s forwards')
@@ -74,11 +57,6 @@ $ ->
 	        "-moz-animation": "results 2s ease-in-out",
 	        "animation": "results 2s ease-in-out"
 	      )
-	      $('footer h1').css(
-	      	"-webkit-animation" : "refresh 2s 3s ease-in-out",
-	      	"-moz-animation" : "refresh 2s 3s ease-in-out",
-	      	"animation" : "refresh 2s 3s ease-in-out"
-	      	)
 	      
 	    #playerChoice = $('button').attr('id')
 	    
@@ -116,6 +94,8 @@ $ ->
 
 	    game(playerChoice, computerChoice)
 	   , 4000)
+
+
 
 
    
